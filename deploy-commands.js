@@ -1,3 +1,4 @@
+
 const { REST, Routes } = require("discord.js");
 const { clientId, guild_Id, guildTest, token } = require("./config.json");
 const fs = require("node:fs");
@@ -53,3 +54,4 @@ const rest = new REST().setToken(token);
     console.error(error);
   }
 })();
+rest

@@ -5,11 +5,11 @@ module.exports = {
     name: Events.ClientReady,
     once: true,
     async execute(client) {
-        client.user.setActivity('Faire des tests', { type: ActivityType.Playing})
+        client.user.setActivity('Making tests', { type: ActivityType.Playing})
         client.user.setStatus('online')
-        console.log(`╠[${client.user.tag}]: je suis connecter`)
+        console.log(`╠[${client.user.tag}]: I'm connected`)
         client.slashs = client.commands.size
-        console.log(`╠J'ai correctement charger ${client.slashs} commandes`)
+        console.log(`╠I have loaded ${client.slashs} commands`)
     }
     
 }

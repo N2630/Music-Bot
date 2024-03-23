@@ -1,31 +1,12 @@
 //----------------------------------Relatif à Index.js------------------------------------------------
 const fs = require("node:fs");
 const path = require("node:path");
-const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
+const { Client, Collection} = require("discord.js");
 const client = new Client({ intents: 3276799 });
-const { token, guild_Id, GPT_Api_Key } = require("./config.json");
+const { token} = require("./config.json");
 
 
 module.exports = { client}
-
-
-//----------------------------------Relatif à la DB---------------------------------------------------
-
-const { error } = require("node:console");
-
-
-//----------------------------------Relatif aux commandes---------------------------------------------
-//const giveUserXp = require("./events/messageCreate/giveUserXp");
-
-
-//--------------------------------Connection à la DB----------------------------------------------------
-(async () => {
-  try {
-    await connectToDB(); 
-  } catch (error) {
-    console.log(`Error: ${error}`);
-  }
-})();
 
 //-------------------------------------Collections--------------------------------------------------------
 client.cooldowns = new Collection();
@@ -56,7 +37,7 @@ for (const folder of commandFolders) {
       }
     } else {
       console.log(
-        `[ATTENTION] La commande dans le fichier ${filePath} est manquante, une propriété "data" ou "execute" est requise.`
+        `[Warning] The command in the folder ${filePath} is missing, a propertie "data" or"execute" is require.`
       );
     }
   }
@@ -81,17 +62,8 @@ for (const file of eventFiles) {
 
 //---------------------------------------------------Event et autres-----------------------------------------
 client.on("error", (error) => {
-  console.error('Une erreur non gérée est survenue :', error)
+  console.error('An error has occured :', error)
 })
-
-
-
-
-
-
-
-
-//----------------------------------------------------------------------------------------------------------------
 
 
 client.login(token);

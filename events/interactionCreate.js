@@ -31,7 +31,7 @@ module.exports = {
 
             if (now < expirationTime) {
                 const expiredTimestamp = Math.round(expirationTime / 1000);
-                return interaction.reply({ content: `Merci d'attendre, vous êtes en cooldown pour \`${command.data.name}\`. Vous pourrez l'utiliser à nouveau dans <t:${expiredTimestamp}:R>.`, ephemeral: true });
+                return interaction.reply({ content: `Please wait, you are in cooldown for \`${command.data.name}\`. You can use it again in <t:${expiredTimestamp}:R>.`, ephemeral: true });
             }
         }
 
@@ -42,7 +42,7 @@ module.exports = {
             await command.execute(interaction);
         } catch (error) {
             console.error(error);
-            await interaction.reply({ content: "Il y a eu une erreur lors de l'exécution de cette commande ou vous n'avez pas les permissions nécessaires", ephemeral: true });
+            await interaction.reply({ content: "There was an error while executing this commande or you don't have the required permissions.", ephemeral: true });
         }
     },
 };
